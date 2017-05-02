@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Uses 3rd-party APIs to give weather for an area",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliecoding/weather-app.git"
+  },
+  "author": "Julie A. Kohler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliecoding/weather-app/issues"
+  },
+  "homepage": "https://github.com/juliecoding/weather-app#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
