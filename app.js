@@ -1,5 +1,6 @@
-const request = require('request');
 const yargs = require('yargs');
+
+const geocode = require('./geocode/geocode');
 
 const argv = yargs
     .options({
@@ -16,13 +17,4 @@ const argv = yargs
 
 console.log(argv);
 
-var encodedAddress = encodeURIComponent(argv.a);
-console.log("Encoded address:", encodedAddress);
-
-request({
-    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
-    json: true
-}, (error, response, body) => {
-    console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
-    console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
-});
+geocode.geocodeAddress(argv.address);
