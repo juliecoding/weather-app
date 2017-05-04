@@ -6,7 +6,7 @@ const argv = yargs
         a: {
             demand: true,
             alias: 'address',
-            describe: 'Address to get weather for',
+            describe: 'Address to fetch weather for',
             string: true
         }
     })
@@ -14,8 +14,13 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
 
+console.log(argv);
+
+var encodedAddress = encodeURIComponent(argv.a);
+console.log("Encoded address:", encodedAddress);
+
 request({
-    url: 'https://maps.googleapis.com/maps/api/geocode/json?address=1301%20lombard%20street%20philadelphia',
+    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
     json: true
 }, (error, response, body) => {
     console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
